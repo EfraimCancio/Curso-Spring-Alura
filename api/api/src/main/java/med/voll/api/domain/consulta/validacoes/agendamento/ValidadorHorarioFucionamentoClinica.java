@@ -1,6 +1,6 @@
-package med.voll.api.domain.consulta.validacoes;
+package med.voll.api.domain.consulta.validacoes.agendamento;
 
-import med.voll.api.domain.ValidacaoExeption;
+import med.voll.api.domain.ValidacaoException;
 import med.voll.api.domain.consulta.DadosAgendamentoConsulta;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +17,7 @@ public class ValidadorHorarioFucionamentoClinica implements ValidadorAgendamento
         var depoisDoFechamentoDaClinica = dataConsulta.getHour() > 18;
 
         if (domingo || antesDaAberturadaClinica || depoisDoFechamentoDaClinica) {
-            throw new ValidacaoExeption("O horário ou a dia da consulta é inválido.");
+            throw new ValidacaoException("O horário ou a dia da consulta é inválido.");
         }
     }
 }

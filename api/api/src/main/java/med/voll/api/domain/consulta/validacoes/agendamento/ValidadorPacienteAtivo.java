@@ -1,6 +1,6 @@
-package med.voll.api.domain.consulta.validacoes;
+package med.voll.api.domain.consulta.validacoes.agendamento;
 
-import med.voll.api.domain.ValidacaoExeption;
+import med.voll.api.domain.ValidacaoException;
 import med.voll.api.domain.consulta.DadosAgendamentoConsulta;
 import med.voll.api.domain.paciente.PacienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +15,10 @@ public class ValidadorPacienteAtivo implements ValidadorAgendamentoDeConsulta {
 
     public void validar(DadosAgendamentoConsulta dados) {
 
-        var pacienteAtivo = pacienteRepository.findAtivoById(dados.idPaciente());
+        var pacienteEstaAtivo = pacienteRepository.findAtivoById(dados.idPaciente());
 
-        if (!pacienteAtivo) {
-            throw new ValidacaoExeption("A consulta não pode ser agendada. O paciente não está ativo no sistema.");
+        if (!pacienteEstaAtivo) {
+            throw new ValidacaoException("A consulta não pode ser agendada. O paciente não está ativo no sistema.");
         }
     }
 }

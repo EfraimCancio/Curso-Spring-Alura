@@ -2,17 +2,17 @@ package med.voll.api.domain.consulta;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
-import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import med.voll.api.domain.medico.Medico;
 import med.voll.api.domain.paciente.Paciente;
 
 import java.time.LocalDateTime;
 
-@Entity(name = "Consulta")
 @Table(name = "consultas")
-@Data
+@Entity(name = "Consulta")
+@Getter
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -39,4 +39,5 @@ public class Consulta {
     public void cancelar(MotivoCancelamento motivo) {
         this.motivoCancelamento = motivo;
     }
+
 }

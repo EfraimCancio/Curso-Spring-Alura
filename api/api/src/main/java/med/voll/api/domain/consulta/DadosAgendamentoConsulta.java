@@ -7,15 +7,20 @@ import med.voll.api.domain.medico.Especialidade;
 
 import java.time.LocalDateTime;
 
+import jakarta.validation.constraints.Future;
+import jakarta.validation.constraints.NotNull;
+import med.voll.api.domain.medico.Especialidade;
+
+import java.time.LocalDateTime;
+
 public record DadosAgendamentoConsulta(
         Long idMedico,
 
         @NotNull
         Long idPaciente,
 
-        @Future
         @NotNull
-        @JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+        @Future
         LocalDateTime data,
 
         Especialidade especialidade) {
